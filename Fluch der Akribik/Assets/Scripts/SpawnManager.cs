@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour {
 
 	private bool coroutineIsRunning;
 	private Transform currentSpawnPoint;
-	public GameObject currentShip;
+	private GameObject currentShip;
 
 
 	void Update () 
