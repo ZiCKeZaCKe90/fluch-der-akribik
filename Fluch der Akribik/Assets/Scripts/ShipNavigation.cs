@@ -1,31 +1,58 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class ShipNavigation : MonoBehaviour {
 
 	public Camera cam;
 
 	public NavMeshAgent agent;
+	public Transform[] targets;
 
-	// Use this for initialization
-	void Start () 
+	[Range(1.0f,5.0f)]
+	public float maxTimeBetweenNewTarget;
+
+	private Transform currentTarget;
+	private bool coroutineIsRunning;
+
+	void Awake () 
 	{
-		if (Input.GetMouseButtonDown (0)) 
-		{
-			Ray ray = cam.ScreenPointToRay (Input.mousePosition);
-			RaycastHit hit;
-
-			if (Physics.Raycast(ray, out hit))
-			{
-				agent.SetDestination (hit.point);
-				Debug.Log ("Hit!");
-			}
-		}	
+		agent = GetComponent<NavMeshAgent> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
+		if (!coroutineIsRunning)
+			StartCoroutine (RandomNavigation ());
+
+		// Destroy Condition
+		if (transform.position.x == currentTarget.position.x) 
+		{
+			Destroy (gameObject);
+		}
+			
+	}
+
+	void FindNewTarget ()
+	{
+		currentTarget = targets[Random.Range(0,targets.Length)];
+	}
+
+	float SetNewWaitForSeconds ()
+	{
+		float randomWaitForSeconds = Random.Range (1, maxTimeBetweenNewTarget);
+		return randomWaitForSeconds;
+	}
+
+	IEnumerator RandomNavigation ()
+	{
 		
+		coroutineIsRunning = true;
+		FindNewTarget ();
+		agent.SetDestination (currentTarget.position);
+		yield return new WaitForSeconds (SetNewWaitForSeconds());
+		coroutineIsRunning = false;
 	}
 }
