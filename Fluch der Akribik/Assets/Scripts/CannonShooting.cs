@@ -8,11 +8,9 @@ public class CannonShooting : MonoBehaviour {
 	public Rigidbody pirate;
 	public Transform fireTransform;
 
-	public float minLaunchForce;
-	public float maxLaunchForce;
 
 //	private string fireButton;
-	public float currentLaunchForce;
+	public float launchForce;
 	private float chargeSpeed;
 
 	// Use this for initialization
@@ -33,7 +31,7 @@ public class CannonShooting : MonoBehaviour {
 	{
 		Rigidbody pirateInstance = Instantiate (pirate, fireTransform.position, fireTransform.rotation) as Rigidbody;
 
-		pirateInstance.velocity = currentLaunchForce * fireTransform.forward;
+		pirateInstance.velocity = launchForce * fireTransform.forward;
 	}
 
 

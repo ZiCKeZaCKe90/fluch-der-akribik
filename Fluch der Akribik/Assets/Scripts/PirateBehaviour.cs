@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PirateBehaviour : MonoBehaviour {
 
-	void OnTriggerEnter (Collider other)
+
+
+    void OnTriggerEnter (Collider other)
 	{
 		if (other.CompareTag("Ocean")) 
 		{
