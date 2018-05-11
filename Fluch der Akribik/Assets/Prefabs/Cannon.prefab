@@ -116,20 +116,20 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745209359124514}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 0.2733333, z: 0.29333305}
   m_LocalScale: {x: 0.33333334, y: 0.3333333, z: 0.3333333}
   m_Children: []
   m_Father: {fileID: 4555658321380820}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!4 &4328283727022188
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1806822483658158}
-  m_LocalRotation: {x: 0, y: 0.3826836, z: -0, w: -0.92387944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -137,7 +137,7 @@ Transform:
   - {fileID: 4555658321380820}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 315, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4555658321380820
 Transform:
   m_ObjectHideFlags: 1
@@ -159,13 +159,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1701086646616342}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0.258819, y: -0, z: -0, w: 0.9659259}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.6666667}
   m_LocalScale: {x: 0.6666667, y: 0.6666666, z: 0.6666666}
   m_Children: []
   m_Father: {fileID: 4555658321380820}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
 --- !u!23 &23389513068865708
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -302,7 +302,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pirate: {fileID: 54135674143064312, guid: 00cdf53d6c26b594aba7e8062e9e36b5, type: 2}
   fireTransform: {fileID: 4856042442157864}
-  launchForce: 10
+  minLaunchForce: 0
+  maxLaunchForce: 0
+  currentLaunchForce: 20
 --- !u!114 &114255593283229272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,10 +317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 4555658321380820}
-  maxDistance: 10
-  minDistance: 5
-  xAngleMax: 75
-  xAngleMin: 0
 --- !u!135 &135507001483442618
 SphereCollider:
   m_ObjectHideFlags: 1
